@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Karishma Sinha</title>
+<meta name="description" content="Karishma Sinha — engineer-founder. Built DropStop solo to 10,000 users, ex-Qualcomm, founder of HerStack, published social-network researcher.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#EAF0EE; --surface:#F7FAF9; --surface-2:#DFE8E5;
+  --ink:#0C2225; --muted:#4B6164; --line:#C3D2CF;
+  --accent:#AD5F06; --accent-ink:#FFF8EC; --rose:#A3375A;
+  --g-venture:#C77A12; --g-eng:#1E7F80; --g-research:#B0436A; --g-honour:#6B7F3A;
+  --edge: rgba(12,34,37,.16); --dust: rgba(12,34,37,.35);
+  --shadow: 0 1px 0 rgba(12,34,37,.04), 0 12px 32px -18px rgba(12,34,37,.35);
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#071416; --surface:#0D1F22; --surface-2:#13292D;
+    --ink:#E6EEEB; --muted:#8EA5A5; --line:#1E3A3E;
+    --accent:#F2A93B; --accent-ink:#1A1004; --rose:#E77C9A;
+    --g-venture:#F2A93B; --g-eng:#5FC4C1; --g-research:#E77C9A; --g-honour:#B9C77A;
+    --edge: rgba(200,230,226,.13); --dust: rgba(200,230,226,.4);
+    --shadow: 0 1px 0 rgba(255,255,255,.03), 0 18px 40px -22px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#071416; --surface:#0D1F22; --surface-2:#13292D;
+  --ink:#E6EEEB; --muted:#8EA5A5; --line:#1E3A3E;
+  --accent:#F2A93B; --accent-ink:#1A1004; --rose:#E77C9A;
+  --g-venture:#F2A93B; --g-eng:#5FC4C1; --g-research:#E77C9A; --g-honour:#B9C77A;
+  --edge: rgba(200,230,226,.13); --dust: rgba(200,230,226,.4);
+  --shadow: 0 1px 0 rgba(255,255,255,.03), 0 18px 40px -22px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg); color:var(--ink); font-family:var(--f-body); font-size:1.125rem; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+a{color:inherit}
+::selection{background:var(--accent); color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+.wrap{max-width:var(--max); margin-inline:auto; padding-inline:var(--gutter)}
+.mono{font-family:var(--f-mono); font-size:.78rem; letter-spacing:.04em}
+.eyebrow{font-family:var(--f-mono); font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+h1,h2,h3,h4{font-family:var(--f-display); font-weight:650; line-height:1.04; margin:0; text-wrap:balance; letter-spacing:-.02em}
+h2{font-size:clamp(2.1rem, 5vw, 3.6rem); font-variation-settings:"wdth" 85}
+h3{font-size:1.5rem; font-variation-settings:"wdth" 92}
+p{margin:0}
+.lede{font-size:clamp(1.15rem, 1.8vw, 1.4rem); line-height:1.5; max-width:38ch; color:var(--ink)}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ───── nav ───── */
+.nav{position:sticky; top:env(safe-area-inset-top,0px); z-index:20; background:color-mix(in srgb, var(--bg) 78%, transparent); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid color-mix(in srgb, var(--line) 60%, transparent)}
+.nav .wrap{display:flex; align-items:center; gap:20px; height:56px}
+.nav .mark{font-family:var(--f-display); font-weight:700; font-size:1.05rem; text-decoration:none; letter-spacing:-.01em; margin-right:auto}
+.nav .mark span{color:var(--accent)}
+.nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0}
+.nav ul a{font-family:var(--f-mono); font-size:.74rem; text-transform:uppercase; letter-spacing:.1em; text-decoration:none; color:var(--muted); transition:color .2s}
+.nav ul a:hover{color:var(--ink)}
+@media (max-width:760px){ .nav ul{display:none} }
+
+/* ───── hero ───── */
+.hero{position:relative; min-height:min(760px, 92svh); display:grid; align-items:end; overflow:hidden; border-bottom:1px solid var(--line)}
+#graph{position:absolute; inset:0; width:100%; height:100%; display:block; cursor:grab}
+#graph.hovering{cursor:pointer}
+.hero .wrap{position:relative; width:100%; padding-block:clamp(48px, 10vh, 110px) 44px; pointer-events:none}
+.hero .wrap a, .hero .wrap button{pointer-events:auto}
+.hero h1{font-family:"Instrument Serif", "Didot", "Bodoni 72", Georgia, serif; font-size:clamp(4rem, 14vw, 11.5rem); font-weight:400; letter-spacing:-.025em; line-height:.84}
+.hero h1 .l2{display:block; font-style:italic; color:var(--accent); padding-left:.42em}
+.hero .thesis{margin-top:28px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px 48px; align-items:end}
+.hero .thesis p.intro{font-size:clamp(1.15rem, 2vw, 1.45rem); max-width:36ch; line-height:1.4}
+.legend{display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:flex-end; max-width:340px}
+.legend span{display:inline-flex; align-items:center; gap:7px; font-family:var(--f-mono); font-size:.72rem; letter-spacing:.06em; color:var(--muted)}
+.legend i{width:9px; height:9px; border-radius:50%; display:inline-block}
+.hero .thesis p.hint{margin-top:18px; font-style:normal; font-size:.72rem; line-height:1.4; max-width:none}
+@media (max-width:720px){ .hero .thesis{grid-template-columns:1fr} .legend{justify-content:flex-start} }
+#tip{position:absolute; z-index:5; pointer-events:none; background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow); padding:10px 12px; border-radius:10px; max-width:240px; transform:translate(-50%, calc(-100% - 16px)); transition:opacity .15s; opacity:0}
+#tip.on{opacity:1}
+#tip b{display:block; font-family:var(--f-display); font-size:1rem; line-height:1.15}
+#tip small{font-family:var(--f-mono); font-size:.68rem; color:var(--muted); letter-spacing:.05em}
+
+/* ───── ticker of numbers ───── */
+.proof{border-bottom:1px solid var(--line)}
+.proof .wrap{display:grid; grid-template-columns:repeat(6, minmax(0,1fr))}
+.proof div{padding:26px 18px 24px; border-left:1px solid var(--line)}
+.proof div:first-child{border-left:0; padding-left:0}
+.proof b{display:block; font-family:var(--f-display); font-weight:650; font-size:clamp(1.8rem, 3.4vw, 2.6rem); letter-spacing:-.03em; line-height:1; font-variation-settings:"wdth" 80; font-variant-numeric:tabular-nums}
+.proof span{display:block; margin-top:8px; font-size:.92rem; line-height:1.35; color:var(--muted)}
+@media (max-width:900px){ .proof .wrap{grid-template-columns:repeat(3, minmax(0,1fr))} .proof div:nth-child(4){border-left:0; padding-left:0} .proof div:nth-child(n+4){border-top:1px solid var(--line)} }
+@media (max-width:520px){ .proof .wrap{grid-template-columns:repeat(2, minmax(0,1fr))} .proof div{border-left:1px solid var(--line)!important; padding-left:16px!important; border-top:1px solid var(--line)} .proof div:nth-child(odd){border-left:0!important; padding-left:0!important} .proof div:nth-child(-n+2){border-top:0} }
+
+/* ───── sections ───── */
+section.block{padding-block:clamp(72px, 11vw, 140px); border-bottom:1px solid var(--line)}
+.head{display:grid; grid-template-columns:minmax(0, 5fr) minmax(0, 6fr); gap:24px 64px; align-items:end; margin-bottom:clamp(40px, 6vw, 72px)}
+.head .eyebrow{grid-column:1/-1}
+@media (max-width:860px){ .head{grid-template-columns:1fr} }
+
+/* ───── DropStop feature ───── */
+.feature{display:grid; grid-template-columns:minmax(0, 7fr) minmax(0, 5fr); gap:clamp(28px, 4vw, 56px); align-items:start}
+@media (max-width:960px){ .feature{grid-template-columns:1fr} }
+.story{display:grid; gap:22px; max-width:62ch}
+.story .kicker{display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center}
+.pill{display:inline-flex; align-items:center; gap:6px; font-family:var(--f-mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; padding:4px 10px; border-radius:999px; border:1px solid var(--line); color:var(--muted); white-space:nowrap}
+.pill.live{border-color:color-mix(in srgb, var(--accent) 60%, transparent); color:var(--accent)}
+.pill.live::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent)}
+.story h3{font-size:clamp(2rem, 4vw, 3rem); font-variation-settings:"wdth" 82}
+.story ul{margin:0; padding:0; list-style:none; display:grid; gap:12px}
+.story li{padding-left:22px; position:relative}
+.story li::before{content:""; position:absolute; left:0; top:.72em; width:10px; height:1.5px; background:var(--accent)}
+.story strong{font-weight:600}
+.stack{display:flex; flex-wrap:wrap; gap:6px}
+.stack span{font-family:var(--f-mono); font-size:.72rem; padding:3px 8px; border-radius:5px; background:var(--surface-2); color:var(--ink)}
+
+/* scorer */
+.scorer{background:var(--surface); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); padding:22px; position:sticky; top:80px}
+@media (max-width:960px){ .scorer{position:static} }
+.scorer header{display:flex; justify-content:space-between; gap:12px; align-items:baseline; margin-bottom:4px}
+.scorer h4{font-size:1.2rem; font-variation-settings:"wdth" 90}
+.scorer .note{font-family:var(--f-mono); font-size:.68rem; color:var(--muted); line-height:1.5; margin-bottom:18px}
+.weights{display:grid; grid-template-columns:1fr 1fr; gap:12px 18px; margin-bottom:18px}
+.weights label{display:grid; gap:4px; font-family:var(--f-mono); font-size:.7rem; letter-spacing:.04em; color:var(--muted)}
+.weights label span{display:flex; justify-content:space-between}
+.weights label output{color:var(--ink); font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:20px; background:transparent}
+input[type=range]::-webkit-slider-runnable-track{height:3px; background:var(--line); border-radius:3px}
+input[type=range]::-moz-range-track{height:3px; background:var(--line); border-radius:3px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:16px; height:16px; margin-top:-6.5px; border-radius:50%; background:var(--accent); border:3px solid var(--surface); box-shadow:0 0 0 1px var(--accent)}
+input[type=range]::-moz-range-thumb{width:12px; height:12px; border-radius:50%; background:var(--accent); border:3px solid var(--surface); box-shadow:0 0 0 1px var(--accent)}
+.ranks{position:relative; list-style:none; margin:0; padding:0}
+.ranks li{position:absolute; left:0; right:0; height:38px; display:grid; grid-template-columns:22px minmax(0,1fr) 44px; gap:10px; align-items:center; transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.ranks .r{font-family:var(--f-mono); font-size:.7rem; color:var(--muted)}
+.ranks .name{font-size:.95rem; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; position:relative}
+.ranks .bar{display:block; height:3px; margin-top:5px; border-radius:3px; background:var(--surface-2); overflow:hidden}
+.ranks .bar i{display:block; height:100%; background:var(--muted); transition:width .55s cubic-bezier(.2,.8,.2,1), background .3s}
+.ranks .s{font-family:var(--f-mono); font-size:.78rem; text-align:right; font-variant-numeric:tabular-nums}
+.ranks li.gap .bar i{background:var(--accent)}
+.ranks li.gap .s{color:var(--accent)}
+.ranks li.gap .r::after{content:"●"; color:var(--accent); margin-left:2px; font-size:.5rem; vertical-align:middle}
+.scorer footer{margin-top:14px; padding-top:14px; border-top:1px dashed var(--line); font-family:var(--f-mono); font-size:.68rem; color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
+
+/* pipeline diagram */
+.pipe{margin-top:clamp(48px,7vw,80px); overflow-x:auto; padding-bottom:6px}
+.pipe-inner{min-width:860px; display:grid; grid-template-columns:repeat(5, 1fr); gap:0; position:relative}
+.pipe .stage{padding:18px 18px 16px; border-top:2px solid var(--line); position:relative}
+.pipe .stage::before{content:""; position:absolute; top:-7px; left:18px; width:12px; height:12px; border-radius:50%; background:var(--bg); border:2px solid var(--accent)}
+.pipe .stage .mono{color:var(--accent); display:block; margin-bottom:6px}
+.pipe .stage b{font-family:var(--f-display); font-weight:600; font-size:1.05rem; display:block; line-height:1.2; margin-bottom:6px}
+.pipe .stage p{font-size:.92rem; color:var(--muted); line-height:1.45}
+
+/* ventures grid */
+.ventures{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:18px; overflow:hidden; margin-top:clamp(56px,8vw,96px)}
+@media (max-width:960px){ .ventures{grid-template-columns:repeat(2, minmax(0,1fr))} }
+@media (max-width:600px){ .ventures{grid-template-columns:1fr} }
+.v{background:var(--bg); padding:26px 24px 24px; display:flex; flex-direction:column; gap:12px; min-height:250px; transition:background .25s}
+.v:hover{background:var(--surface)}
+.v .top{display:flex; justify-content:space-between; align-items:center; gap:10px}
+.v h3{font-size:1.45rem}
+.v p{font-size:1rem; line-height:1.5; color:var(--muted)}
+.v .metric{margin-top:auto; font-family:var(--f-mono); font-size:.76rem; color:var(--ink); display:flex; gap:6px 14px; flex-wrap:wrap}
+.v .metric b{color:var(--accent); font-weight:500}
+.v a.out{font-family:var(--f-mono); font-size:.74rem; text-decoration:none; color:var(--accent); border-bottom:1px solid currentColor; align-self:flex-start}
+
+/* engineering */
+.eng{display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(28px,5vw,72px)}
+@media (max-width:900px){ .eng{grid-template-columns:1fr} }
+aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow); align-self:start}
+.roles{display:grid; gap:0}
+.role{display:grid; grid-template-columns:120px minmax(0,1fr); gap:18px; padding-block:22px; border-top:1px solid var(--line)}
+.role:first-child{border-top:0; padding-top:0}
+.role .when{font-family:var(--f-mono); font-size:.74rem; color:var(--muted); padding-top:5px}
+.role h4{font-size:1.25rem; font-variation-settings:"wdth" 92}
+.role h4 small{font-family:var(--f-body); font-weight:400; font-style:italic; font-size:1rem; color:var(--muted); letter-spacing:0}
+.role ul{margin:10px 0 0; padding-left:18px; display:grid; gap:6px; font-size:1rem}
+.role li::marker{color:var(--accent)}
+@media (max-width:560px){ .role{grid-template-columns:1fr; gap:6px} }
+
+.skills{display:grid; grid-template-columns:110px minmax(0,1fr); gap:14px 16px; margin:18px 0 0}
+.skills dt{font-family:var(--f-mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); padding-top:4px}
+.skills dd{margin:0; font-size:1rem; line-height:1.45}
+@media (max-width:420px){ .skills{grid-template-columns:1fr; gap:4px} .skills dd{margin-bottom:10px} }
+/* research */
+.paper{display:grid; grid-template-columns:minmax(0, 7fr) minmax(0, 5fr); gap:clamp(24px,4vw,56px); padding:clamp(24px,4vw,44px); border-radius:18px; border:1px solid var(--line); background:var(--surface); box-shadow:var(--shadow)}
+@media (max-width:860px){ .paper{grid-template-columns:1fr} }
+.paper h3{font-size:clamp(1.6rem, 3vw, 2.3rem); font-variation-settings:"wdth" 86; margin-block:10px 14px}
+.paper .cite{font-size:.98rem; color:var(--muted)}
+.paper .cite i{color:var(--ink)}
+.netfig{aspect-ratio:1/1; max-width:100%; width:100%; border-radius:14px; background:var(--bg); border:1px solid var(--line); position:relative; overflow:hidden}
+.netfig canvas{width:100%; height:100%; display:block}
+.netfig figcaption{position:absolute; left:12px; bottom:10px; right:12px; font-family:var(--f-mono); font-size:.66rem; color:var(--muted)}
+.rgrid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:clamp(20px,3vw,36px); margin-top:clamp(40px,6vw,64px)}
+@media (max-width:860px){ .rgrid{grid-template-columns:1fr} }
+.rgrid article{display:grid; gap:8px; align-content:start}
+.rgrid h4{font-size:1.15rem; font-variation-settings:"wdth" 92}
+.rgrid p{font-size:1rem; color:var(--muted)}
+
+/* honours */
+.filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px}
+.filters button{font-family:var(--f-mono); font-size:.72rem; letter-spacing:.06em; padding:7px 13px; border-radius:999px; border:1px solid var(--line); background:transparent; color:var(--muted); cursor:pointer; transition:all .2s}
+.filters button:hover{color:var(--ink); border-color:var(--muted)}
+.filters button[aria-pressed="true"]{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.honours{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:clamp(24px,4vw,56px)}
+@media (max-width:760px){ .honours{grid-template-columns:1fr} }
+.honours li{display:grid; grid-template-columns:52px minmax(0,1fr) auto; gap:14px; align-items:baseline; padding-block:15px; border-top:1px solid var(--line)}
+.honours .y{font-family:var(--f-mono); font-size:.74rem; color:var(--muted); font-variant-numeric:tabular-nums}
+.honours b{font-family:var(--f-display); font-weight:600; font-size:1.06rem; line-height:1.25; display:block; letter-spacing:-.01em}
+.honours small{font-size:.92rem; color:var(--muted); line-height:1.4; display:block; margin-top:2px}
+.honours .dot{width:8px; height:8px; border-radius:50%; align-self:center}
+.honours a{font-family:var(--f-mono); font-size:.68rem; color:var(--accent); text-decoration:none; border-bottom:1px solid currentColor; white-space:nowrap}
+
+/* leadership */
+.lead{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:clamp(18px,3vw,32px)}
+@media (max-width:900px){ .lead{grid-template-columns:repeat(2, minmax(0,1fr))} }
+@media (max-width:480px){ .lead{grid-template-columns:1fr} }
+.lead div{border-top:2px solid var(--ink); padding-top:14px; display:grid; gap:6px; align-content:start}
+.lead b{font-family:var(--f-display); font-weight:600; font-size:1.1rem; line-height:1.2}
+.lead span{font-size:.95rem; color:var(--muted); line-height:1.4}
+
+
+/* contact */
+.contact{padding-block:clamp(80px,12vw,150px) 48px}
+.contact h2{font-size:clamp(2.6rem, 8vw, 6.4rem); font-variation-settings:"wdth" 78; letter-spacing:-.04em; line-height:.92; max-width:14ch}
+.contact h2 em{font-family:var(--f-body); font-style:italic; font-weight:400; letter-spacing:-.02em; color:var(--accent)}
+.links{display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; align-items:center}
+.btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:999px; border:1px solid var(--line); background:var(--surface); text-decoration:none; font-family:var(--f-mono); font-size:.8rem; color:var(--ink); cursor:pointer; transition:border-color .2s, transform .2s}
+.btn:hover{border-color:var(--accent); transform:translateY(-1px)}
+.btn.primary{background:var(--accent); color:var(--accent-ink); border-color:var(--accent)}
+.foot{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-top:80px; padding-top:20px; border-top:1px solid var(--line)}
+
+/* motion */
+.rise{transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.rise.pre{transform:translateY(18px)}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .rise, .rise.pre{transform:none; transition:none}
+  .ranks li, .ranks .bar i{transition:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a class="mark" href="#top">Karishma Sinha<span>.</span></a>
+    <ul>
+      <li><a href="#build">Ventures</a></li>
+      <li><a href="#engineering">Engineering</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#honours">Honours</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="graph" aria-label="Interactive network of Karishma's ventures, roles, research and honours. Hover a node to see what it is; click to jump to it."></canvas>
+  <div id="tip" role="status" aria-live="polite"><b></b><small></small></div>
+  <div class="wrap">
+    <p class="eyebrow">Engineer · Founder · Researcher — New Delhi</p>
+    <h1>Karishma<span class="l2">Sinha</span></h1>
+    <div class="thesis">
+      <p class="intro">I build products end to end, from distributed backends serving 300k+ users at Qualcomm to DropStop, a product-intelligence SaaS I founded and grew to 10,000 users.</p>
+      <div>
+        <div class="legend" aria-hidden="true">
+          <span><i style="background:var(--g-venture)"></i>Ventures</span>
+          <span><i style="background:var(--g-eng)"></i>Engineering</span>
+          <span><i style="background:var(--g-research)"></i>Research</span>
+          <span><i style="background:var(--g-honour)"></i>Honours</span>
+        </div>
+        <p class="mono muted hint" style="text-align:right">Drag to orbit · node size = eigenvector centrality</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="proof" aria-label="Key numbers">
+  <div class="wrap">
+    <div><b class="num">10,000</b><span>DropStop users, built solo with no team or funding</span></div>
+    <div><b class="num">50k+</b><span>products analysed across 100+ suppliers by DropStop</span></div>
+    <div><b class="num">300k+</b><span>users on Qualcomm backend systems I scaled</span></div>
+    <div><b class="num">1M+</b><span>enterprise licenses automated across 4k+ companies</span></div>
+    <div><b class="num">100+</b><span>open-source contributors to HerStack</span></div>
+    <div><b class="num">40×</b><span>throughput from DropStop’s C++ ranking engine</span></div>
+  </div>
+</div>
+
+<main>
+<!-- ═════════ VENTURES ═════════ -->
+<section class="block" id="build">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">01 — What I've built</p>
+      <h2>Products I've founded and built.</h2>
+      <p class="lede">From idea to paying product: architecture, data pipelines, payments and frontend, built and run by me.</p>
+    </div>
+
+    <div class="feature">
+      <div class="story rise">
+        <div class="kicker">
+          <span class="pill live">Founder &amp; CTO · Oct 2024 →</span>
+          <a class="mono" style="color:var(--accent)" href="https://dropstop.co.in" target="_blank" rel="noopener">dropstop.co.in ↗</a>
+        </div>
+        <h3>DropStop: product intelligence for Indian e-commerce</h3>
+        <p>An AI market-research tool that helps Indian e-commerce sellers find products worth selling. It started as a Chrome extension and grew into a full SaaS with 10,000 users.</p>
+        <ul>
+          <li><strong>Cross-market arbitrage detection.</strong> It reads Amazon US trends, models competition in India (review depth, price compression, ad density), and surfaces the top 10% of products with low competition.</li>
+          <li><strong>A C++ ranking engine via pybind11</strong> that scores products on several signals at once. It gave a <strong>40×</strong> throughput gain.</li>
+          <li><strong>50k+ products from 100+ suppliers</strong>, pulled through a concurrent pipeline that keeps working when APIs fail or hit rate limits. Caching cut API calls by <strong>85%</strong>, bringing infrastructure cost down to 800 credits a month.</li>
+          <li><strong>End-to-end system design</strong>: microservices on GCP Cloud Run, Firebase, OAuth, a Next.js frontend, Flask and C++ services, and scheduled refresh jobs. Integrated the Meta Graph, Amazon Product Advertising and Google Analytics APIs, plus Razorpay with 3 subscription tiers.</li>
+          <li><strong>Team</strong>: mentored 3 engineering and marketing interns through agile sprints and code reviews.</li>
+        </ul>
+        <div class="stack" aria-label="Stack">
+          <span>Python · Flask</span><span>C++ · pybind11</span><span>Next.js</span><span>GCP Cloud Run</span><span>Firebase</span><span>GitHub Actions cron</span><span>Razorpay</span><span>Meta Graph API</span><span>Amazon PA API</span>
+        </div>
+      </div>
+
+      <aside class="scorer rise" aria-labelledby="scorer-title">
+        <header><h4 id="scorer-title">Try the gap scorer</h4><span class="mono muted">interactive</span></header>
+        <p class="note">A simplified version of DropStop's scoring, with no ML. Adjust the weights and the products re-rank. The top 10% are flagged as gaps.<br>Example products and signals for illustration, not live DropStop data.</p>
+        <div class="weights">
+          <label for="w-sat"><span>Low saturation <output id="o-sat">35</output></span><input id="w-sat" type="range" min="0" max="100" value="35"></label>
+          <label for="w-mom"><span>Momentum (US→IN) <output id="o-mom">30</output></span><input id="w-mom" type="range" min="0" max="100" value="30"></label>
+          <label for="w-price"><span>Price headroom <output id="o-price">20</output></span><input id="w-price" type="range" min="0" max="100" value="20"></label>
+          <label for="w-rev"><span>Thin reviews <output id="o-rev">15</output></span><input id="w-rev" type="range" min="0" max="100" value="15"></label>
+        </div>
+        <ol class="ranks" id="ranks" aria-live="polite"></ol>
+        <footer><span id="gapcount">● = top 10% gap</span><button class="btn" id="shuffle" type="button" style="padding:6px 12px; font-size:.68rem">New market week</button></footer>
+      </aside>
+    </div>
+
+    <div class="pipe" role="region" aria-label="DropStop pipeline" tabindex="0">
+      <div class="pipe-inner">
+        <div class="stage"><span class="mono">Ingest</span><b>Amazon US trends + Google Trends</b><p>Find out what's growing abroad before it reaches India.</p></div>
+        <div class="stage"><span class="mono">Normalise</span><b>NLP title → generic product</b><p>Strip brand names from messy titles so one product can be matched across all its listings.</p></div>
+        <div class="stage"><span class="mono">Source</span><b>Supplier sweep</b><p>IndiaMart, TradeIndia, DeoDap, BaapStore and DropDash, each with its own data model.</p></div>
+        <div class="stage"><span class="mono">Rank</span><b>C++ scoring engine</b><p>Combine saturation, momentum, price headroom and review depth. 40× faster than the Python version.</p></div>
+        <div class="stage"><span class="mono">Ship</span><b>Weekly “winners” &amp; “gaps”</b><p>Snapshotted before each update so any week can be rolled back, then served through Next.js.</p></div>
+      </div>
+    </div>
+
+    <div class="ventures">
+      <article class="v rise">
+        <div class="top"><span class="pill">Founder · 2025 →</span><span class="mono muted">herstack.org</span></div>
+        <h3>HerStack</h3>
+        <p>An open-source educational platform that teaches high-school girls to learn and build with AI, through hands-on projects.</p>
+        <div class="metric"><span><b>100+</b> active contributors</span><span><b>GSSoC</b> accepted</span></div>
+        <a class="out" href="https://www.herstack.org" target="_blank" rel="noopener">Visit herstack.org ↗</a>
+      </article>
+      <article class="v rise">
+        <div class="top"><span class="pill live">Building · 2026</span><span class="mono muted">swarmops.dev</span></div>
+        <h3>SwarmOps</h3>
+        <p>A vendor-neutral, tamper-evident audit ledger for AI agents. It records who acted, under what policy, on what evidence, approved by whom, and with what result. The log is an append-only, hash-chained Postgres ledger, and approvals are gated behind OIDC sign-in.</p>
+        <div class="metric"><span><b>Python</b> · Postgres</span><span>wraps <b>HolmesGPT</b></span></div>
+      </article>
+      <article class="v rise">
+        <div class="top"><span class="pill">Founder · 2026</span></div>
+        <h3>ScanTrack</h3>
+        <p>An ATS resume checker that parses and scores resumes entirely in the browser, so the file never reaches a server. It runs 34 checks in 6 weighted categories, matches resumes against job-description keywords, and charges through Razorpay.</p>
+        <div class="metric"><span><b>34</b> checks</span><span><b>0</b> resumes stored</span></div>
+      </article>
+      <article class="v rise">
+        <div class="top"><span class="pill">Entrepreneur Lead · 2021</span></div>
+        <h3>IIT Madras GDC I‑NCUBATE</h3>
+        <p>18th cohort of the Gopalakrishnan-Deshpande Centre's venture programme, which accepts fewer than 10% of applicants. I led more than 100 customer interviews in edtech while still an undergraduate.</p>
+        <div class="metric"><span><b>&lt;10%</b> acceptance</span><span><b>100+</b> interviews</span></div>
+      </article>
+      <article class="v rise">
+        <div class="top"><span class="pill">Fellowship · 2021</span></div>
+        <h3>TrueSides</h3>
+        <p>A “cross-biased” social media platform for news, designed to show each reader the other side. It won the Chanakya UG Fellowship from IHUB Anubhuti (IIIT Delhi) under Cognitive Computing &amp; Social Sensing.</p>
+        <div class="metric"><span><b>₹2L</b> grant</span><span>with Soumyadeep Paul</span></div>
+      </article>
+      <article class="v rise">
+        <div class="top"><span class="pill">Experiments</span><span class="mono muted">github.com/escher-m</span></div>
+        <h3>Small, shipped, public</h3>
+        <p><b>GitHub Wrapped</b>, a Spotify-style recap of your year of code that runs locally. <b>Creator Pulse Pro</b>, AI analytics for Instagram creators. <b>RopoSort</b>, a Chrome extension that sorts products on RoposoClout.</p>
+        <a class="out" href="https://github.com/escher-m" target="_blank" rel="noopener">See GitHub ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ ENGINEERING ═════════ -->
+<section class="block" id="engineering">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">02 — Engineering</p>
+      <h2>Production systems at enterprise scale.</h2>
+      <p class="lede">I spent 2.5 years as a backend engineer at Qualcomm, working on distributed systems, AWS infrastructure and enterprise licensing. </p>
+    </div>
+    <div class="eng">
+      <aside class="swagger rise" aria-label="Skills">
+        <p class="eyebrow">Toolkit</p>
+        <dl class="skills">
+          <dt>Languages</dt><dd>C++, Java, Python, SQL, TypeScript, JavaScript, HTML/CSS</dd>
+          <dt>Frameworks</dt><dd>Spring Boot, Java Jersey, Flask, React, Next.js, Angular</dd>
+          <dt>Platforms</dt><dd>AWS, GCP, Firebase, PostgreSQL, MySQL, Redis</dd>
+          <dt>Tools</dt><dd>Git, Docker, Kubernetes, Kafka, Grafana, Jenkins, JMeter</dd>
+          <dt>Data &amp; ML</dt><dd>Pandas, NLTK, PyTorch, NetworkX, Gephi</dd>
+        </dl>
+      </aside>
+      <div class="roles">
+        <div class="role rise">
+          <span class="when">Jul 2022 —<br>Oct 2024</span>
+          <div>
+            <h4>Qualcomm <small>Associate → Software Engineer, Hyderabad</small></h4>
+            <ul>
+              <li>Scaled distributed backends to <b>300k+ users on 30 EC2 instances</b> using Redis, connection pooling and query tuning, reaching a P50 latency of 10ms under peak load.</li>
+              <li>Led the design of license-update automation for <b>1M+ licenses across 4k+ companies</b>, saving about 150 hours of manual work a year.</li>
+              <li>Merged <b>1k+ legacy tools</b> into Qualcomm Package Manager for 50k+ enterprise users in 30 days, without breaking backward compatibility.</li>
+              <li>Owned the AWS setup: RDS, Elastic Beanstalk, CloudFront, Lambda, SQS, S3, IAM/RBAC. Built a Jenkins CI/CD pipeline and stress-tested with JMeter at 100k parallel calls.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="role rise">
+          <span class="when">May —<br>Jun 2020</span>
+          <div>
+            <h4>Apache Software Foundation <small>Open Source Developer Intern</small></h4>
+            <ul><li>Tested and documented DML functions (GNMF, normalisation, grid search) for Apache SystemDS, with contributions merged upstream.</li></ul>
+          </div>
+        </div>
+        <div class="role rise">
+          <span class="when">2018 —<br>2022</span>
+          <div>
+            <h4>IIIT Delhi <small>B.Tech CSE, with Honours · Minor in Entrepreneurship · 8.43</small></h4>
+            <ul><li>Built Mirai, a Raspberry Pi smart mirror that reads your emotion with OpenCV and plays music to match. Also built a Prolog career advisor with a natural-language interface (ingenuity bonus) and an Advanced Programming project suite in Java.</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ RESEARCH ═════════ -->
+<section class="block" id="research">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">03 — Research</p>
+      <h2>Mapping how movements spread online.</h2>
+      <p class="lede">Before startups, I studied networks: who follows whom, which nodes matter, and how a protest moves from the street to the timeline. That same lens is how I read markets now.</p>
+    </div>
+    <article class="paper rise">
+      <div>
+        <p class="eyebrow">Peer-reviewed · Global Policy, 2023</p>
+        <h3>Influencers as institutions: Impact of digital politics in the Global South</h3>
+        <p class="cite">Sinha, K., Jhalani, P., Khan, A. &amp; Mukherjee, P.C. <i>Global Policy</i> 14(5), 912–924. Earlier versions were presented at SACA-AEJMC and the Centre de Sciences Humaines conference in 2021.</p>
+        <p style="margin-top:18px; max-width:56ch">I collected follower-followee graphs connecting protesters, governing and opposition politicians, journalists and celebrities for <b>#BlackLivesMatter</b> and <b>#antiCAA</b>, using Tweepy, NetworkX and Gephi. Nodes were sized by eigenvector centrality to show who actually carried each movement.</p>
+        <div class="links" style="margin-top:22px">
+          <a class="btn" href="https://doi.org/10.1111/1758-5899.13188" target="_blank" rel="noopener">Read the paper · DOI ↗</a>
+          <a class="btn" href="https://github.com/escher-m/Twitter-Follower-Followee-Graph" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </div>
+      <figure class="netfig" style="margin:0">
+        <canvas id="net2" aria-hidden="true"></canvas>
+        <figcaption>Illustrative re-creation: four communities, with bridges between them</figcaption>
+      </figure>
+    </article>
+    <div class="rgrid">
+      <article class="rise">
+        <span class="eyebrow">TCPD, Ashoka University · 2021–22</span>
+        <h4>West Bengal elections on Twitter</h4>
+        <p>Matched more than 1M tweets to real social identities using NLP (Jaro-Winkler, Levenshtein), cross-referenced them with the Facebook Ads Library, and mapped the resulting networks for the Trivedi Centre for Political Data.</p>
+      </article>
+      <article class="rise">
+        <span class="eyebrow">LCS2, IIIT Delhi · 2021–22</span>
+        <h4>Political leaning of news media</h4>
+        <p>Studied the political leaning of news outlets with NLP models, under Dr. Tanmoy Chakraborty in the Social Network Analysis group.</p>
+      </article>
+      <article class="rise">
+        <span class="eyebrow">Precog, IIIT Delhi · 2021</span>
+        <h4>Parler, police tweets &amp; Reddit</h4>
+        <p>Analysed the Parler dataset (time series, heatmaps, hashtags), built a bag-of-words classifier for Gurgaon Police tweets, and scored the polarity of Reddit comments.</p>
+        <a class="out mono" style="color:var(--accent)" href="https://github.com/escher-m/Privacy-and-Security-on-Online-Social-Media" target="_blank" rel="noopener">Notebooks ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ HONOURS ═════════ -->
+<section class="block" id="honours">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">04 — Honours &amp; credentials</p>
+      <h2>A long habit of finishing near the top.</h2>
+      <p class="lede">From Duke TIP at age 12 to Top Performer at Qualcomm. Each entry is backed by a certificate, and the links verify where one exists.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter honours">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="venture" aria-pressed="false">Founder</button>
+      <button type="button" data-f="eng" aria-pressed="false">Engineering</button>
+      <button type="button" data-f="research" aria-pressed="false">Research</button>
+      <button type="button" data-f="honour" aria-pressed="false">Academic</button>
+      <button type="button" data-f="arts" aria-pressed="false">Arts &amp; writing</button>
+    </div>
+    <ul class="honours" id="honourList"></ul>
+  </div>
+</section>
+
+<!-- ═════════ LEADERSHIP ═════════ -->
+<section class="block" id="leadership">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">05 — Bringing people together</p>
+      <h2>Rooms I've helped run.</h2>
+      <p class="lede">Clubs, communities and events I've led or helped run.</p>
+    </div>
+    <div class="lead">
+      <div class="rise"><b>Vice-Chair, IEEE WIE</b><span>Women in Engineering, IIIT Delhi · 2020–21. Also Editor-in-Chief and Content Lead for IEEE IIITD.</span></div>
+      <div class="rise"><b>Curator, TEDx IIITD</b><span>Core executive team · 2021–22</span></div>
+      <div class="rise"><b>President, Voix de Literati</b><span>IIIT Delhi's literary society · 2019–20</span></div>
+      <div class="rise"><b>Content Creator, Resource Council</b><span>2020 · Interviewed environmentalists such as Aabid Surti to spread awareness about using resources fully.</span></div>
+      <div class="rise"><b>Event Head, Odyssey ’19</b><span>Ran the haiku and content-writing events at IIIT Delhi’s cultural fest.</span></div>
+      <div class="rise"><b>Mentor &amp; ambassador</b><span>Student mentor at IIIT Delhi since 2020; WomenTech Global Ambassador; Univ.AI Campus Ambassador; core member of Finnexia, the finance society.</span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">06 — Say hello</p>
+    <h2>Let’s build <em>something</em> worth using.</h2>
+    <p class="lede" style="margin-top:22px">I'm always up for a conversation about AI infrastructure, e-commerce, markets, or how people understand one another. That could be a role, a collaboration, or just a good problem.</p>
+    <div class="links">
+      <button class="btn primary" type="button" id="copyEmail">karishmasinha.002@gmail.com <span aria-hidden="true">⧉</span></button>
+      <a class="btn" href="https://www.linkedin.com/in/karishma-sinha-7b46b8182/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/escher-m" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://scholar.google.com/citations?user=hu8LLG0AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+      <a class="btn" href="https://dropstop.co.in" target="_blank" rel="noopener">DropStop ↗</a>
+      <a class="btn" href="https://www.herstack.org" target="_blank" rel="noopener">HerStack ↗</a>
+      <a class="btn" href="https://www.instagram.com/kar.s.life/" target="_blank" rel="noopener">Instagram ↗</a>
+      <a class="btn" href="https://www.chess.com/member/karsniper" target="_blank" rel="noopener">Chess.com ↗</a>
+      <span class="mono muted" id="copyMsg" role="status"></span>
+    </div>
+    <div class="foot mono muted">
+      <span>Karishma Sinha · IIIT Delhi ’22 · ex-Qualcomm</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+  /* ───────────── data ───────────── */
+  const NODES = [
+    // ventures
+    {id:'dropstop', label:'DropStop', sub:'Founder & CTO · 10k users', g:'venture', to:'build'},
+    {id:'herstack', label:'HerStack', sub:'100+ open-source contributors', g:'venture', to:'build'},
+    {id:'swarmops', label:'SwarmOps', sub:'Audit ledger for AI agents · 2026', g:'venture', to:'build'},
+    {id:'scantrack', label:'ScanTrack', sub:'In-browser ATS scorer', g:'venture', to:'build'},
+    {id:'gdc', label:'IIT Madras I-NCUBATE', sub:'Entrepreneur Lead · cohort 18', g:'venture', to:'build'},
+    {id:'truesides', label:'TrueSides', sub:'Chanakya Fellowship · ₹2L', g:'venture', to:'build'},
+    {id:'minor', label:'Entrepreneurship minor', sub:'IIIT Delhi', g:'venture', to:'build'},
+    {id:'wrapped', label:'GitHub Wrapped', sub:'Open source · 2026', g:'venture', to:'build'},
+    // engineering
+    {id:'qcom', label:'Qualcomm', sub:'SWE · 300k+ users', g:'eng', to:'engineering'},
+    {id:'license', label:'License automation', sub:'1M+ licenses · 4k companies', g:'eng', to:'engineering'},
+    {id:'qpm', label:'QPM migration', sub:'1k+ legacy tools in 30 days', g:'eng', to:'engineering'},
+    {id:'aws', label:'AWS infrastructure', sub:'RDS · Lambda · SQS · Redis', g:'eng', to:'engineering'},
+    {id:'apache', label:'Apache SystemDS', sub:'Open Source Developer Intern', g:'eng', to:'engineering'},
+    {id:'cpp', label:'C++ ranking engine', sub:'pybind11 · 40× throughput', g:'eng', to:'build'},
+    {id:'mirai', label:'Mirai smart mirror', sub:'Raspberry Pi + OpenCV', g:'eng', to:'engineering'},
+    {id:'iiitd', label:'IIIT Delhi', sub:'B.Tech CSE with Honours', g:'eng', to:'engineering'},
+    // research
+    {id:'paper', label:'Global Policy paper', sub:'Peer-reviewed · 2023', g:'research', to:'research'},
+    {id:'newslab', label:'NewsLab', sub:'#BLM and #antiCAA networks', g:'research', to:'research'},
+    {id:'tcpd', label:'TCPD, Ashoka', sub:'1M+ election tweets', g:'research', to:'research'},
+    {id:'lcs2', label:'LCS2', sub:'Political leaning of news media', g:'research', to:'research'},
+    {id:'precog', label:'Parler analysis', sub:'Privacy & security in social media', g:'research', to:'research'},
+    {id:'saca', label:'SACA-AEJMC 2021', sub:'Conference presentation', g:'research', to:'research'},
+    // honours
+    {id:'top1', label:'Top Performer', sub:'Qualcomm associate engineers · 2023', g:'honour', to:'honours'},
+    {id:'deans', label:"Dean's List", sub:'9+ GPA · 2020–21', g:'honour', to:'honours'},
+    {id:'ntse', label:'NTSE Scholar', sub:'National · 2016', g:'honour', to:'honours'},
+    {id:'duke', label:'Duke TIP', sub:'Among India’s 1,700 most gifted · 2013', g:'honour', to:'honours'},
+    {id:'nstse', label:'NSTSE rank 247', sub:'National · 2015', g:'honour', to:'honours'},
+    {id:'gold', label:'DPS Gold Medal', sub:'7 consecutive years', g:'honour', to:'honours'},
+    {id:'wecode', label:'Harvard WECode', sub:'100% scholarship', g:'honour', to:'honours'},
+    {id:'nptel', label:'NPTEL Elite ×2', sub:'Cloud computing · Ethical hacking', g:'honour', to:'honours'},
+    {id:'gssoc', label:'GirlScript SoC', sub:'2021', g:'honour', to:'honours'},
+  ];
+  const EDGES = [
+    ['dropstop','cpp'],['dropstop','scantrack'],['dropstop','swarmops'],
+    ['herstack','gssoc'],['minor','gdc'],['minor','iiitd'],['gdc','truesides'],['truesides','iiitd'],
+    ['truesides','lcs2'],['wrapped','swarmops'],['qcom','license'],['qcom','qpm'],
+    ['qcom','aws'],['qcom','top1'],['aws','dropstop'],['cpp','qcom'],['apache','iiitd'],['apache','herstack'],
+    ['mirai','iiitd'],['iiitd','deans'],['iiitd','newslab'],['newslab','paper'],['newslab','saca'],['tcpd','paper'],
+    ['tcpd','newslab'],['lcs2','iiitd'],['precog','iiitd'],['precog','newslab'],['paper','dropstop'],['deans','truesides'],
+    ['ntse','gold'],['duke','gold'],['nstse','gold'],['ntse','iiitd'],['wecode','herstack'],['wecode','iiitd'],
+    ['nptel','aws'],['nptel','iiitd'],['gssoc','iiitd'],['scantrack','wrapped'],['license','aws'],['herstack','dropstop']
+  ];
+
+  /* eigenvector centrality (power iteration) — the same measure from the research */
+  const idx = Object.fromEntries(NODES.map((n,i)=>[n.id,i]));
+  const adj = NODES.map(()=>[]);
+  EDGES.forEach(([a,b])=>{ adj[idx[a]].push(idx[b]); adj[idx[b]].push(idx[a]); });
+  let ev = NODES.map(()=>1);
+  for(let it=0; it<60; it++){
+    const nx = ev.map((_,i)=> adj[i].reduce((s,j)=>s+ev[j], 0) + 0.15*ev[i]);
+    const m = Math.max(...nx); ev = nx.map(v=>v/m);
+  }
+  NODES.forEach((n,i)=> n.c = ev[i]);
+
+  /* ───────────── honours list ───────────── */
+  const H = [
+    ['2023','Top Performer amongst Associate Engineers','Qualcomm','eng'],
+    ['2023','Influencers as institutions (peer-reviewed)','Global Policy 14(5), Wiley · #BlackLivesMatter vs #AntiCAA','research',['DOI','https://doi.org/10.1111/1758-5899.13188']],
+    ['2022','B.Tech CSE, graduated with Honours','IIIT Delhi · Minor in Entrepreneurship · CGPA 8.43','honour'],
+    ['2022','100% scholarship, Harvard WECode','Women Engineers Code conference','honour'],
+    ['2022','NPTEL Elite: Ethical Hacking','IIT Kharagpur · 12-week course','eng'],
+    ['2021','Entrepreneur Lead, I-NCUBATE cohort 18','Gopalakrishnan-Deshpande Centre, IIT Madras','venture'],
+    ['2021','Chanakya UG Fellowship, ₹2,00,000','IHUB Anubhuti-IIITD · for TrueSides','venture'],
+    ['2021',"Dean's List for Academic Excellence",'IIIT Delhi · 9+ GPA in 2020–21','honour'],
+    ['2021','GirlScript Summer of Code','Open-source programme','eng'],
+    ['2021','NPTEL Elite: Cloud Computing & Distributed Systems','IIT Kanpur · 80%, one of 748 certified','eng'],
+    ['2021','Presented at SACA-AEJMC and Centre de Sciences Humaines','#BlackLivesMatter and #antiCAA on Twitter','research'],
+    ['2021','UN Young Changemakers Conclave','11th annual, on 21st-century workplace skills','venture'],
+    ['2020','Open Source Developer Intern','Apache Software Foundation · SystemDS','eng'],
+    ['2020','Google Kick Start, Round A','Google Coding Competitions','eng'],
+    ['2020','What is “the mind” and what is AI? With honors','University of Colorado Boulder','research',['verify','https://coursera.org/verify/DQBB9CCF6TV8']],
+    ['2020','Introduction to AI','IBM','eng',['verify','https://coursera.org/verify/8NZ9DN7YWMGZ']],
+    ['2020','Detecting COVID-19 in chest X-rays with PyTorch','Coursera Project Network','research',['verify','https://coursera.org/verify/WW9ZWEEKR3TQ']],
+    ['2020','Introduction to Web Development','UC Davis','eng',['verify','https://coursera.org/verify/AN9CL4WGB7DS']],
+    ['2020','Project Management: The Basics for Success','UC Irvine','venture',['verify','https://coursera.org/verify/EF29FZYZF35S']],
+    ['2020','Fundamentals of Digital Marketing','Google Digital Unlocked','venture'],
+    ['2020','WomenTech Global Conference','Participant and Global Ambassador','venture'],
+    ['2020','Creative Writing Specialization','Wesleyan University · 5 courses incl. capstone','arts',['verify','https://coursera.org/verify/specialization/ULTJM98AG84P']],
+    ['2018','Class XII, 95%','CBSE · DPS Vasant Kunj','honour'],
+    ['2017','Gold Medalist, 7 consecutive years','Delhi Public School · 95%+ every year','honour'],
+    ['2016','NTSE Scholar','NCERT National Talent Search, top ~700 of 1M','honour'],
+    ['2016','Class X, CGPA 10/10','CBSE · DPS Gurgaon','honour'],
+    ['2015','NSTSE national rank 247','City topper, Faridabad + Gurgaon','honour'],
+    ['2015','Bharatanatyam Senior Diploma, distinction','Prayag Sangeet Samiti · first division','arts'],
+    ['2014','DPS Science & Maths Talent Exam, rank 41','DPS Society × Science Olympiad Foundation','honour'],
+    ['2013','Duke University Talent Identification Program','One of India’s 1,700 most gifted 7th graders','honour'],
+  ];
+  const gColor = {venture:'var(--g-venture)', eng:'var(--g-eng)', research:'var(--g-research)', honour:'var(--g-honour)', arts:'var(--rose)'};
+  const list = document.getElementById('honourList');
+  list.innerHTML = H.map(([y,t,s,g,link])=>`<li data-g="${g}"><span class="y">${y}</span><div><b>${t}</b><small>${s}</small></div>${link?`<a href="${link[1]}" target="_blank" rel="noopener">${link[0]} ↗</a>`:`<span class="dot" style="background:${gColor[g]}"></span>`}</li>`).join('');
+  document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed', x===b));
+    const f=b.dataset.f;
+    list.querySelectorAll('li').forEach(li=> li.hidden = !(f==='all' || li.dataset.g===f));
+  }));
+
+  /* ───────────── gap scorer ───────────── */
+  const PRODUCTS = ['Ice face roller','Magnetic phone mount','Portable blender','Posture corrector','LED sunset lamp','Silicone stretch lids','Mini label printer','Cordless hair trimmer','Pet hair remover roller','Car seat gap filler','Electric milk frother','Desk cable organiser','Foldable laptop stand','Rechargeable lint shaver','Self-stirring mug','Under-shelf basket','Neck fan','Shower filter','Ab roller wheel','Vegetable chopper'];
+  let seed = 7;
+  const rnd = ()=> (seed = (seed*16807) % 2147483647) / 2147483647;
+  let data;
+  function gen(){ data = PRODUCTS.map(n=>({n, sat:rnd()*100, mom:rnd()*100, price:rnd()*100, rev:rnd()*100})); }
+  gen();
+  const ranks = document.getElementById('ranks');
+  const SHOW = 8, ROW = 38;
+  ranks.style.height = (SHOW*ROW)+'px';
+  ranks.innerHTML = PRODUCTS.map((n,i)=>`<li data-i="${i}"><span class="r"></span><span class="name">${n}<span class="bar"><i></i></span></span><span class="s"></span></li>`).join('');
+  const rows = [...ranks.children];
+  const ids = ['sat','mom','price','rev'];
+  function score(){
+    const w = Object.fromEntries(ids.map(k=>[k, +document.getElementById('w-'+k).value]));
+    ids.forEach(k=> document.getElementById('o-'+k).textContent = w[k]);
+    const tot = ids.reduce((s,k)=>s+w[k],0) || 1;
+    const scored = data.map((p,i)=>({i, s: ids.reduce((s,k)=>s + p[k]*w[k],0)/tot }));
+    scored.sort((a,b)=>b.s-a.s);
+    const gaps = Math.max(1, Math.round(data.length*0.10));
+    scored.forEach((o,rank)=>{
+      const li = rows[o.i];
+      li.style.transform = `translateY(${rank*ROW}px)`;
+      li.style.visibility = rank < SHOW ? 'visible' : 'hidden';
+      li.classList.toggle('gap', rank < gaps);
+      li.querySelector('.r').textContent = String(rank+1).padStart(2,'0');
+      li.querySelector('.s').textContent = o.s.toFixed(1);
+      li.querySelector('.bar i').style.width = o.s.toFixed(1)+'%';
+    });
+    document.getElementById('gapcount').textContent = `● = top 10% (${gaps} of ${data.length}) flagged as gaps`;
+  }
+  ids.forEach(k=> document.getElementById('w-'+k).addEventListener('input', score));
+  document.getElementById('shuffle').addEventListener('click', ()=>{ gen(); score(); });
+  score();
+
+  /* ───────────── copy email ───────────── */
+  document.getElementById('copyEmail').addEventListener('click', ()=>{
+    const email='karishmasinha.002@gmail.com', msg=document.getElementById('copyMsg');
+    const fallback=()=>{ const r=document.createRange(); r.selectNodeContents(document.getElementById('copyEmail')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); msg.textContent='Selected. Press ⌘C / Ctrl+C to copy'; };
+    try{ navigator.clipboard.writeText(email).then(()=>msg.textContent='Email copied', fallback); }catch(e){ fallback(); }
+  });
+
+  /* ───────────── gentle rise on scroll (content visible at rest) ───────────── */
+  if(!reduce && 'IntersectionObserver' in window){
+    const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target);} }), {rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rise').forEach(el=>{ const r=el.getBoundingClientRect(); if(r.top > innerHeight){ el.classList.add('pre'); io.observe(el);} });
+  }
+
+  /* ───────────── research figure: 2D force graph on canvas ───────────── */
+  (function(){
+    const cv = document.getElementById('net2'); if(!cv) return;
+    const ctx = cv.getContext('2d');
+    const groups = 4, per = 16; const pts=[]; const links=[];
+    let s2=42; const r2=()=> (s2=(s2*16807)%2147483647)/2147483647;
+    for(let g=0; g<groups; g++){
+      const a = g/groups*Math.PI*2 + .5;
+      for(let k=0;k<per;k++) pts.push({g, x:.5+Math.cos(a)*.24+(r2()-.5)*.2, y:.5+Math.sin(a)*.24+(r2()-.5)*.2, vx:0, vy:0, d:0});
+    }
+    pts.forEach((p,i)=>{ for(let j=i+1;j<pts.length;j++){ const q=pts[j]; const pr = p.g===q.g ? .2 : .012; if(r2()<pr){ links.push([i,j]); p.d++; q.d++; } } });
+    let W,Hh,dpr;
+    function size(){ dpr=Math.min(2,devicePixelRatio||1); const r=cv.getBoundingClientRect(); W=r.width; Hh=r.height; cv.width=W*dpr; cv.height=Hh*dpr; }
+    size(); addEventListener('resize', size);
+    let t=0, visible=true;
+    new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(cv);
+    function step(){
+      for(let i=0;i<pts.length;i++){ const p=pts[i];
+        for(let j=i+1;j<pts.length;j++){ const q=pts[j]; let dx=p.x-q.x, dy=p.y-q.y, d2=dx*dx+dy*dy+1e-4; const f=.00004/d2; p.vx+=dx*f; p.vy+=dy*f; q.vx-=dx*f; q.vy-=dy*f; }
+        p.vx += (.5-p.x)*.0006; p.vy += (.5-p.y)*.0006;
+      }
+      links.forEach(([a,b])=>{ const p=pts[a], q=pts[b]; const dx=q.x-p.x, dy=q.y-p.y; const d=Math.hypot(dx,dy)||1e-3; const f=(d-.09)*.004; p.vx+=dx/d*f; p.vy+=dy/d*f; q.vx-=dx/d*f; q.vy-=dy/d*f; });
+      pts.forEach(p=>{ p.vx*=.86; p.vy*=.86; p.x+=p.vx; p.y+=p.vy; p.x=Math.min(.94,Math.max(.06,p.x)); p.y=Math.min(.9,Math.max(.06,p.y)); });
+    }
+    for(let i=0;i<220;i++) step();
+    function draw(){
+      const cols=[css('--g-venture'),css('--g-eng'),css('--g-research'),css('--g-honour')];
+      ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,Hh);
+      const wob = reduce?0:t;
+      const P = p=>[ (p.x + Math.sin(wob*.6+p.y*9)*.004)*W, (p.y + Math.cos(wob*.5+p.x*9)*.004)*Hh ];
+      ctx.lineWidth=.7;
+      links.forEach(([a,b])=>{ const A=P(pts[a]), B=P(pts[b]); ctx.strokeStyle = pts[a].g===pts[b].g ? css('--edge') : cols[2]; ctx.globalAlpha = pts[a].g===pts[b].g ? 1 : .55; ctx.beginPath(); ctx.moveTo(A[0],A[1]); ctx.lineTo(B[0],B[1]); ctx.stroke(); });
+      ctx.globalAlpha=1;
+      pts.forEach(p=>{ const [x,y]=P(p); ctx.fillStyle=cols[p.g]; ctx.beginPath(); ctx.arc(x,y,1.6+p.d*.55,0,Math.PI*2); ctx.fill(); });
+    }
+    (function loop(){ if(visible){ t+=.016; draw(); } if(!reduce) requestAnimationFrame(loop); })();
+    draw();
+    new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  })();
+
+  /* ───────────── hero: three.js constellation ───────────── */
+  const canvas = document.getElementById('graph');
+  if(!window.THREE){ canvas.style.display='none'; return; }
+  const T = THREE;
+  const renderer = new T.WebGLRenderer({canvas, antialias:true, alpha:true});
+  renderer.setPixelRatio(Math.min(2, devicePixelRatio||1));
+  const scene = new T.Scene();
+  const camera = new T.PerspectiveCamera(42, 1, .1, 200);
+  camera.position.set(0, 0, 34);
+  const world = new T.Group(); scene.add(world);
+
+  // 3D force layout, clusters seeded by group
+  const anchors = {venture:new T.Vector3(-7,3,0), eng:new T.Vector3(6,4,-3), research:new T.Vector3(5,-5,3), honour:new T.Vector3(-5,-5,-3)};
+  let s3=11; const r3=()=> (s3=(s3*16807)%2147483647)/2147483647 - .5;
+  const P = NODES.map(n=> anchors[n.g].clone().add(new T.Vector3(r3()*8, r3()*8, r3()*8)));
+  const V = NODES.map(()=>new T.Vector3());
+  for(let it=0; it<400; it++){
+    for(let i=0;i<P.length;i++){ for(let j=i+1;j<P.length;j++){ const d=P[i].clone().sub(P[j]); const l2=Math.max(d.lengthSq(), .5); d.multiplyScalar(2.2/l2); V[i].add(d); V[j].sub(d); } }
+    EDGES.forEach(([a,b])=>{ const i=idx[a], j=idx[b]; const d=P[j].clone().sub(P[i]); const l=d.length(); d.multiplyScalar((l-4.5)*.02/l); V[i].add(d); V[j].sub(d); });
+    P.forEach((p,i)=>{ V[i].add(anchors[NODES[i].g].clone().sub(p).multiplyScalar(.006)); V[i].add(p.clone().multiplyScalar(-.004)); V[i].multiplyScalar(.82); p.add(V[i]); });
+  }
+  // fit layout to a radius
+  const c = P.reduce((a,p)=>a.add(p), new T.Vector3()).multiplyScalar(1/P.length);
+  P.forEach(p=>p.sub(c));
+  const maxR = Math.max(...P.map(p=>p.length())); P.forEach(p=>p.multiplyScalar(11/maxR));
+
+  function glowTex(){
+    const s=128, cv=document.createElement('canvas'); cv.width=cv.height=s; const g=cv.getContext('2d');
+    const gr=g.createRadialGradient(s/2,s/2,0,s/2,s/2,s/2); gr.addColorStop(0,'rgba(255,255,255,1)'); gr.addColorStop(.18,'rgba(255,255,255,.9)'); gr.addColorStop(.32,'rgba(255,255,255,.25)'); gr.addColorStop(1,'rgba(255,255,255,0)');
+    g.fillStyle=gr; g.fillRect(0,0,s,s); return new T.CanvasTexture(cv);
+  }
+  const tex = glowTex();
+  const sphereGeo = new T.SphereGeometry(1, 20, 14);
+  const meshes = NODES.map((n,i)=>{
+    const mat = new T.MeshBasicMaterial({color:0xffffff});
+    const m = new T.Mesh(sphereGeo, mat);
+    const r = .22 + n.c*.62; m.scale.setScalar(r); m.position.copy(P[i]); m.userData = {i, r};
+    const halo = new T.Sprite(new T.SpriteMaterial({map:tex, color:0xffffff, transparent:true, opacity:.55, depthWrite:false}));
+    halo.scale.setScalar(r*7); m.add(halo); m.userData.halo = halo;
+    world.add(m); return m;
+  });
+  // edges
+  const eGeo = new T.BufferGeometry();
+  const ePos = new Float32Array(EDGES.length*6);
+  EDGES.forEach(([a,b],k)=>{ const A=P[idx[a]], B=P[idx[b]]; ePos.set([A.x,A.y,A.z,B.x,B.y,B.z], k*6); });
+  eGeo.setAttribute('position', new T.BufferAttribute(ePos,3));
+  const eMat = new T.LineBasicMaterial({color:0xffffff, transparent:true, opacity:.22});
+  world.add(new T.LineSegments(eGeo, eMat));
+  // highlighted edges (on hover)
+  const hGeo = new T.BufferGeometry(); hGeo.setAttribute('position', new T.BufferAttribute(new Float32Array(60*6),3)); hGeo.setDrawRange(0,0);
+  const hMat = new T.LineBasicMaterial({color:0xffffff, transparent:true, opacity:.9});
+  world.add(new T.LineSegments(hGeo, hMat));
+  // pulses travelling along edges
+  const PULSES = 26;
+  const pulseGeo = new T.BufferGeometry(); const pulsePos = new Float32Array(PULSES*3);
+  pulseGeo.setAttribute('position', new T.BufferAttribute(pulsePos,3));
+  const pulseMat = new T.PointsMaterial({size:.5, map:tex, transparent:true, depthWrite:false, color:0xffffff, opacity:.95});
+  world.add(new T.Points(pulseGeo, pulseMat));
+  const pulses = Array.from({length:PULSES}, ()=>({e:Math.floor(Math.random()*EDGES.length), t:Math.random(), v:.004+Math.random()*.008}));
+  // dust
+  const DUST=700, dGeo=new T.BufferGeometry(), dPos=new Float32Array(DUST*3);
+  for(let i=0;i<DUST;i++){ const r=16+Math.random()*30, th=Math.random()*Math.PI*2, ph=Math.acos(2*Math.random()-1); dPos.set([r*Math.sin(ph)*Math.cos(th), r*Math.sin(ph)*Math.sin(th), r*Math.cos(ph)], i*3); }
+  dGeo.setAttribute('position', new T.BufferAttribute(dPos,3));
+  const dMat = new T.PointsMaterial({size:.09, color:0xffffff, transparent:true, opacity:.5, depthWrite:false});
+  scene.add(new T.Points(dGeo, dMat));
+
+  function parseCol(s){ // handles #hex and rgba()
+    const m = s.match(/rgba?\(([^)]+)\)/);
+    if(m){ const [r,g,b,a=1]=m[1].split(',').map(Number); return {c:new T.Color(r/255,g/255,b/255), a:+a}; }
+    return {c:new T.Color(s||'#888'), a:1};
+  }
+  function applyTheme(){
+    const gc = {venture:css('--g-venture'), eng:css('--g-eng'), research:css('--g-research'), honour:css('--g-honour')};
+    meshes.forEach(m=>{ const col=new T.Color(gc[NODES[m.userData.i].g]); m.material.color.copy(col); m.userData.halo.material.color.copy(col); m.userData.base=col; });
+    const e=parseCol(css('--edge')); eMat.color.copy(e.c); eMat.opacity = Math.min(.5, e.a*2.2);
+    hMat.color.copy(new T.Color(css('--accent'))); pulseMat.color.copy(new T.Color(css('--accent')));
+    const d=parseCol(css('--dust')); dMat.color.copy(d.c); dMat.opacity=d.a;
+    const dark = matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.dataset.theme!=='light' || document.documentElement.dataset.theme==='dark';
+    meshes.forEach(m=>{ m.userData.halo.material.opacity = dark ? .55 : .28; m.userData.halo.material.blending = dark ? T.AdditiveBlending : T.NormalBlending; m.userData.halo.material.needsUpdate=true; });
+    pulseMat.blending = dark ? T.AdditiveBlending : T.NormalBlending; pulseMat.needsUpdate = true;
+  }
+  applyTheme();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+  new MutationObserver(applyTheme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+  function resize(){
+    const r = canvas.getBoundingClientRect();
+    renderer.setSize(r.width, r.height, false);
+    camera.aspect = r.width/r.height;
+    // keep the cluster to the right on wide screens, centred and further on narrow
+    const wide = r.width > 820;
+    camera.position.z = wide ? 34 : 44;
+    camera.updateProjectionMatrix();
+    world.position.x = wide ? 7 : 0;
+    world.position.y = wide ? 1.5 : 5;
+  }
+  resize(); addEventListener('resize', resize);
+
+  // interaction: drag to orbit, hover to inspect, click to jump
+  const ray = new T.Raycaster(), mouse = new T.Vector2(-9,-9), tip = document.getElementById('tip');
+  let rotY = .4, rotX = .15, velY = reduce?0:.0016, dragging=false, lastX=0, lastY=0, moved=0, hover=-1;
+  canvas.addEventListener('pointerdown', e=>{ dragging=true; moved=0; lastX=e.clientX; lastY=e.clientY; canvas.setPointerCapture(e.pointerId); canvas.style.cursor='grabbing'; });
+  canvas.addEventListener('pointerup', e=>{ dragging=false; canvas.style.cursor=''; if(moved<6 && hover>=0){ document.getElementById(NODES[hover].to)?.scrollIntoView({behavior: reduce?'auto':'smooth'}); } });
+  canvas.addEventListener('pointerleave', ()=>{ mouse.set(-9,-9); });
+  canvas.addEventListener('pointermove', e=>{
+    const r = canvas.getBoundingClientRect();
+    mouse.x = (e.clientX-r.left)/r.width*2-1; mouse.y = -(e.clientY-r.top)/r.height*2+1;
+    if(dragging){ const dx=e.clientX-lastX, dy=e.clientY-lastY; moved+=Math.abs(dx)+Math.abs(dy); rotY += dx*.006; rotX = Math.max(-1, Math.min(1, rotX + dy*.004)); lastX=e.clientX; lastY=e.clientY; }
+  });
+
+  function setHighlight(i){
+    const arr = hGeo.attributes.position.array; let k=0;
+    if(i>=0) EDGES.forEach(([a,b])=>{ if((idx[a]===i||idx[b]===i) && k<60){ const A=P[idx[a]],B=P[idx[b]]; arr.set([A.x,A.y,A.z,B.x,B.y,B.z], k*6); k++; } });
+    hGeo.setDrawRange(0, k*2); hGeo.attributes.position.needsUpdate = true;
+  }
+
+  let running = true, t0 = performance.now();
+  new IntersectionObserver(e=>{ running = e[0].isIntersecting; if(running) frame(); }).observe(canvas);
+  const tmp = new T.Vector3();
+  function frame(){
+    const t = (performance.now()-t0)/1000;
+    if(!dragging) rotY += velY;
+    world.rotation.y += (rotY - world.rotation.y)*.08;
+    world.rotation.x += (rotX + (reduce?0:mouse.y*.06) - world.rotation.x)*.06;
+    // breathing
+    meshes.forEach((m,i)=>{ const s = m.userData.r*(1 + (reduce?0:Math.sin(t*1.4+i)*.06)) * (i===hover?1.5:1); m.scale.setScalar(s); });
+    // pulses
+    pulses.forEach((p,k)=>{ p.t += reduce?0:p.v; if(p.t>1){ p.t=0; p.e=Math.floor(Math.random()*EDGES.length);} const [a,b]=EDGES[p.e]; tmp.copy(P[idx[a]]).lerp(P[idx[b]], p.t); pulsePos.set([tmp.x,tmp.y,tmp.z], k*3); });
+    pulseGeo.attributes.position.needsUpdate = true;
+    // hover
+    ray.setFromCamera(mouse, camera);
+    const hit = ray.intersectObjects(meshes, false)[0];
+    const h = hit ? hit.object.userData.i : -1;
+    if(h!==hover){
+      hover = h; setHighlight(h); canvas.classList.toggle('hovering', h>=0);
+      if(h>=0){ tip.querySelector('b').textContent = NODES[h].label; tip.querySelector('small').textContent = NODES[h].sub + ' · click to open'; }
+      tip.classList.toggle('on', h>=0);
+    }
+    if(hover>=0){
+      meshes[hover].getWorldPosition(tmp); tmp.project(camera);
+      const r = canvas.getBoundingClientRect();
+      tip.style.left = ((tmp.x+1)/2*r.width)+'px'; tip.style.top = ((1-tmp.y)/2*r.height)+'px';
+    }
+    renderer.render(scene, camera);
+    if(running && !reduce) requestAnimationFrame(frame);
+  }
+  frame();
+  if(reduce){ canvas.addEventListener('pointermove', ()=>requestAnimationFrame(frame)); }
+})();
+</script>
+</body>
+</html>
