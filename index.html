@@ -172,6 +172,8 @@ input[type=range]::-moz-range-thumb{width:12px; height:12px; border-radius:50%; 
 .v .metric b{color:var(--accent); font-weight:500}
 .v a.out{font-family:var(--f-mono); font-size:.74rem; text-decoration:none; color:var(--accent); border-bottom:1px solid currentColor; align-self:flex-start}
 
+.v-wide{grid-column:span 2}
+@media (max-width:600px){ .v-wide{grid-column:auto} }
 /* engineering */
 .eng{display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(28px,5vw,72px)}
 @media (max-width:900px){ .eng{grid-template-columns:1fr} }
@@ -219,6 +221,15 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
 .honours .dot{width:8px; height:8px; border-radius:50%; align-self:center}
 .honours a{font-family:var(--f-mono); font-size:.68rem; color:var(--accent); text-decoration:none; border-bottom:1px solid currentColor; white-space:nowrap}
 
+/* certifications */
+.certs{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden}
+@media (max-width:900px){ .certs{grid-template-columns:repeat(2, minmax(0,1fr))} }
+@media (max-width:560px){ .certs{grid-template-columns:1fr} }
+.certs li{background:var(--bg); padding:16px 18px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:4px 12px; align-content:start}
+.certs .iss{font-family:var(--f-mono); font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+.certs .yr{font-family:var(--f-mono); font-size:.68rem; color:var(--muted); text-align:right; font-variant-numeric:tabular-nums}
+.certs b{grid-column:1/-1; font-family:var(--f-display); font-weight:600; font-size:1rem; line-height:1.3; letter-spacing:-.01em}
+.certs a{grid-column:1/-1; justify-self:start; font-family:var(--f-mono); font-size:.66rem; color:var(--accent); text-decoration:none; border-bottom:1px solid currentColor; margin-top:4px}
 /* leadership */
 .lead{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:clamp(18px,3vw,32px)}
 @media (max-width:900px){ .lead{grid-template-columns:repeat(2, minmax(0,1fr))} }
@@ -258,6 +269,7 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
       <li><a href="#engineering">Engineering</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#honours">Honours</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -350,6 +362,13 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
     </div>
 
     <div class="ventures">
+      <article class="v v-wide rise">
+        <div class="top"><span class="pill live">Co-founder</span><a class="mono" style="color:var(--accent); text-decoration:none" href="https://partners.triponic.com/" target="_blank" rel="noopener">partners.triponic.com ↗</a></div>
+        <h3>Triponic</h3>
+        <p>An AI itinerary builder and CRM for travel agencies. It generates a day-by-day itinerary in about 60 seconds, then carries it through the lead pipeline, quotes, invoices and white-label client proposals.</p>
+        <p>As co-founder, I built the <b style="color:var(--ink); font-weight:600">end-to-end WhatsApp chat integration</b>. It serves both B2B agency clients and B2C travellers, who can make their bookings directly on Triponic.</p>
+        <div class="metric"><span><b>WhatsApp</b> end to end</span><span><b>B2B + B2C</b> bookings</span><span><b>~60s</b> itineraries</span></div>
+      </article>
       <article class="v rise">
         <div class="top"><span class="pill">Founder · 2025 →</span><span class="mono muted">herstack.org</span></div>
         <h3>HerStack</h3>
@@ -381,7 +400,7 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
         <p>A “cross-biased” social media platform for news, designed to show each reader the other side. It won the Chanakya UG Fellowship from IHUB Anubhuti (IIIT Delhi) under Cognitive Computing &amp; Social Sensing.</p>
         <div class="metric"><span><b>₹2L</b> grant</span><span>with Soumyadeep Paul</span></div>
       </article>
-      <article class="v rise">
+      <article class="v v-wide rise">
         <div class="top"><span class="pill">Experiments</span><span class="mono muted">github.com/escher-m</span></div>
         <h3>Small, shipped, public</h3>
         <p><b>GitHub Wrapped</b>, a Spotify-style recap of your year of code that runs locally. <b>Creator Pulse Pro</b>, AI analytics for Instagram creators. <b>RopoSort</b>, a Chrome extension that sorts products on RoposoClout.</p>
@@ -491,9 +510,9 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
 <section class="block" id="honours">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">04 — Honours &amp; credentials</p>
-      <h2>A long habit of finishing near the top.</h2>
-      <p class="lede">From Duke TIP at age 12 to Top Performer at Qualcomm. Each entry is backed by a certificate, and the links verify where one exists.</p>
+      <p class="eyebrow">04 — Honours</p>
+      <h2>Recognition along the way.</h2>
+      <p class="lede">Awards, scholarships and publications, from a talent search at age 12 to Qualcomm.</p>
     </div>
     <div class="filters" role="group" aria-label="Filter honours">
       <button type="button" data-f="all" aria-pressed="true">All</button>
@@ -501,9 +520,21 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
       <button type="button" data-f="eng" aria-pressed="false">Engineering</button>
       <button type="button" data-f="research" aria-pressed="false">Research</button>
       <button type="button" data-f="honour" aria-pressed="false">Academic</button>
-      <button type="button" data-f="arts" aria-pressed="false">Arts &amp; writing</button>
+      <button type="button" data-f="arts" aria-pressed="false">Arts</button>
     </div>
     <ul class="honours" id="honourList"></ul>
+  </div>
+</section>
+
+<!-- ═════════ CERTIFICATIONS ═════════ -->
+<section class="block" id="certifications">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">05 — Certifications</p>
+      <h2>Always learning something.</h2>
+      <p class="lede">Courses beyond the degree, in AI, cloud, security, the web and writing.</p>
+    </div>
+    <ul class="certs" id="certList"></ul>
   </div>
 </section>
 
@@ -511,7 +542,7 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
 <section class="block" id="leadership">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">05 — Bringing people together</p>
+      <p class="eyebrow">06 — Bringing people together</p>
       <h2>Rooms I've helped run.</h2>
       <p class="lede">Clubs, communities and events I've led or helped run.</p>
     </div>
@@ -530,7 +561,7 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
 
 <footer class="contact" id="contact">
   <div class="wrap">
-    <p class="eyebrow">06 — Say hello</p>
+    <p class="eyebrow">07 — Say hello</p>
     <h2>Let’s build <em>something</em> worth using.</h2>
     <p class="lede" style="margin-top:22px">I'm always up for a conversation about AI infrastructure, e-commerce, markets, or how people understand one another. That could be a role, a collaboration, or just a good problem.</p>
     <div class="links">
@@ -560,6 +591,7 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
   const NODES = [
     // ventures
     {id:'dropstop', label:'DropStop', sub:'Founder & CTO · 10k users', g:'venture', to:'build'},
+    {id:'triponic', label:'Triponic', sub:'Co-founder · WhatsApp integration', g:'venture', to:'build'},
     {id:'herstack', label:'HerStack', sub:'100+ open-source contributors', g:'venture', to:'build'},
     {id:'swarmops', label:'SwarmOps', sub:'Audit ledger for AI agents · 2026', g:'venture', to:'build'},
     {id:'scantrack', label:'ScanTrack', sub:'In-browser ATS scorer', g:'venture', to:'build'},
@@ -591,7 +623,7 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
     {id:'nstse', label:'NSTSE rank 247', sub:'National · 2015', g:'honour', to:'honours'},
     {id:'gold', label:'DPS Gold Medal', sub:'7 consecutive years', g:'honour', to:'honours'},
     {id:'wecode', label:'Harvard WECode', sub:'100% scholarship', g:'honour', to:'honours'},
-    {id:'nptel', label:'NPTEL Elite ×2', sub:'Cloud computing · Ethical hacking', g:'honour', to:'honours'},
+    {id:'nptel', label:'NPTEL Elite ×2', sub:'Cloud computing · Ethical hacking', g:'honour', to:'certifications'},
     {id:'gssoc', label:'GirlScript SoC', sub:'2021', g:'honour', to:'honours'},
   ];
   const EDGES = [
@@ -602,7 +634,7 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
     ['mirai','iiitd'],['iiitd','deans'],['iiitd','newslab'],['newslab','paper'],['newslab','saca'],['tcpd','paper'],
     ['tcpd','newslab'],['lcs2','iiitd'],['precog','iiitd'],['precog','newslab'],['paper','dropstop'],['deans','truesides'],
     ['ntse','gold'],['duke','gold'],['nstse','gold'],['ntse','iiitd'],['wecode','herstack'],['wecode','iiitd'],
-    ['nptel','aws'],['nptel','iiitd'],['gssoc','iiitd'],['scantrack','wrapped'],['license','aws'],['herstack','dropstop']
+    ['nptel','aws'],['nptel','iiitd'],['gssoc','iiitd'],['scantrack','wrapped'],['license','aws'],['herstack','dropstop'],['triponic','dropstop'],['triponic','swarmops'],['triponic','gdc']
   ];
 
   /* eigenvector centrality (power iteration) — the same measure from the research */
@@ -622,33 +654,38 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
     ['2023','Influencers as institutions (peer-reviewed)','Global Policy 14(5), Wiley · #BlackLivesMatter vs #AntiCAA','research',['DOI','https://doi.org/10.1111/1758-5899.13188']],
     ['2022','B.Tech CSE, graduated with Honours','IIIT Delhi · Minor in Entrepreneurship · CGPA 8.43','honour'],
     ['2022','100% scholarship, Harvard WECode','Women Engineers Code conference','honour'],
-    ['2022','NPTEL Elite: Ethical Hacking','IIT Kharagpur · 12-week course','eng'],
     ['2021','Entrepreneur Lead, I-NCUBATE cohort 18','Gopalakrishnan-Deshpande Centre, IIT Madras','venture'],
     ['2021','Chanakya UG Fellowship, ₹2,00,000','IHUB Anubhuti-IIITD · for TrueSides','venture'],
     ['2021',"Dean's List for Academic Excellence",'IIIT Delhi · 9+ GPA in 2020–21','honour'],
     ['2021','GirlScript Summer of Code','Open-source programme','eng'],
-    ['2021','NPTEL Elite: Cloud Computing & Distributed Systems','IIT Kanpur · 80%, one of 748 certified','eng'],
     ['2021','Presented at SACA-AEJMC and Centre de Sciences Humaines','#BlackLivesMatter and #antiCAA on Twitter','research'],
     ['2021','UN Young Changemakers Conclave','11th annual, on 21st-century workplace skills','venture'],
     ['2020','Open Source Developer Intern','Apache Software Foundation · SystemDS','eng'],
     ['2020','Google Kick Start, Round A','Google Coding Competitions','eng'],
-    ['2020','What is “the mind” and what is AI? With honors','University of Colorado Boulder','research',['verify','https://coursera.org/verify/DQBB9CCF6TV8']],
-    ['2020','Introduction to AI','IBM','eng',['verify','https://coursera.org/verify/8NZ9DN7YWMGZ']],
-    ['2020','Detecting COVID-19 in chest X-rays with PyTorch','Coursera Project Network','research',['verify','https://coursera.org/verify/WW9ZWEEKR3TQ']],
-    ['2020','Introduction to Web Development','UC Davis','eng',['verify','https://coursera.org/verify/AN9CL4WGB7DS']],
-    ['2020','Project Management: The Basics for Success','UC Irvine','venture',['verify','https://coursera.org/verify/EF29FZYZF35S']],
-    ['2020','Fundamentals of Digital Marketing','Google Digital Unlocked','venture'],
     ['2020','WomenTech Global Conference','Participant and Global Ambassador','venture'],
-    ['2020','Creative Writing Specialization','Wesleyan University · 5 courses incl. capstone','arts',['verify','https://coursera.org/verify/specialization/ULTJM98AG84P']],
     ['2018','Class XII, 95%','CBSE · DPS Vasant Kunj','honour'],
     ['2017','Gold Medalist, 7 consecutive years','Delhi Public School · 95%+ every year','honour'],
-    ['2016','NTSE Scholar','NCERT National Talent Search, top ~700 of 1M','honour'],
+    ['2016','NTSE Scholar','NCERT National Talent Search','honour'],
     ['2016','Class X, CGPA 10/10','CBSE · DPS Gurgaon','honour'],
     ['2015','NSTSE national rank 247','City topper, Faridabad + Gurgaon','honour'],
     ['2015','Bharatanatyam Senior Diploma, distinction','Prayag Sangeet Samiti · first division','arts'],
     ['2014','DPS Science & Maths Talent Exam, rank 41','DPS Society × Science Olympiad Foundation','honour'],
     ['2013','Duke University Talent Identification Program','One of India’s 1,700 most gifted 7th graders','honour'],
   ];
+  const C = [
+    ['NPTEL · IIT Kharagpur','2022','Ethical Hacking (Elite)'],
+    ['NPTEL · IIT Kanpur','2021','Cloud Computing & Distributed Systems (Elite, 80%)'],
+    ['University of Colorado Boulder','2020','What is “the mind” and what is AI? (with honors)','https://coursera.org/verify/DQBB9CCF6TV8'],
+    ['IBM','2020','Introduction to Artificial Intelligence','https://coursera.org/verify/8NZ9DN7YWMGZ'],
+    ['Coursera Project Network','2020','Detecting COVID-19 in Chest X-Rays with PyTorch','https://coursera.org/verify/WW9ZWEEKR3TQ'],
+    ['Coursera Project Network','2020','Processing Data with Python','https://coursera.org/verify/LFZJF2LUX7EY'],
+    ['UC Davis','2020','Introduction to Web Development','https://coursera.org/verify/AN9CL4WGB7DS'],
+    ['UC Irvine','2020','Project Management: The Basics for Success','https://coursera.org/verify/EF29FZYZF35S'],
+    ['HackerRank','2020','Problem Solving (Basic)'],
+    ['Google Digital Unlocked','2020','Fundamentals of Digital Marketing'],
+    ['Wesleyan University','2020','Creative Writing Specialization (5 courses)','https://coursera.org/verify/specialization/ULTJM98AG84P'],
+  ];
+  document.getElementById('certList').innerHTML = C.map(([iss,y,t,url])=>`<li><span class="iss">${iss}</span><span class="yr">${y}</span><b>${t}</b>${url?`<a href="${url}" target="_blank" rel="noopener">Verify ↗</a>`:''}</li>`).join('');
   const gColor = {venture:'var(--g-venture)', eng:'var(--g-eng)', research:'var(--g-research)', honour:'var(--g-honour)', arts:'var(--rose)'};
   const list = document.getElementById('honourList');
   list.innerHTML = H.map(([y,t,s,g,link])=>`<li data-g="${g}"><span class="y">${y}</span><div><b>${t}</b><small>${s}</small></div>${link?`<a href="${link[1]}" target="_blank" rel="noopener">${link[0]} ↗</a>`:`<span class="dot" style="background:${gColor[g]}"></span>`}</li>`).join('');
@@ -724,10 +761,10 @@ aside.swagger{margin:0; padding:28px 28px 26px; border-radius:18px; background:v
     new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(cv);
     function step(){
       for(let i=0;i<pts.length;i++){ const p=pts[i];
-        for(let j=i+1;j<pts.length;j++){ const q=pts[j]; let dx=p.x-q.x, dy=p.y-q.y, d2=dx*dx+dy*dy+1e-4; const f=.00004/d2; p.vx+=dx*f; p.vy+=dy*f; q.vx-=dx*f; q.vy-=dy*f; }
-        p.vx += (.5-p.x)*.0006; p.vy += (.5-p.y)*.0006;
+        for(let j=i+1;j<pts.length;j++){ const q=pts[j]; let dx=p.x-q.x, dy=p.y-q.y, d2=dx*dx+dy*dy+1e-4; const f=Math.min(.0008, .000004/d2); p.vx+=dx*f; p.vy+=dy*f; q.vx-=dx*f; q.vy-=dy*f; }
+        p.vx += (.5-p.x)*.0012; p.vy += (.5-p.y)*.0012;
       }
-      links.forEach(([a,b])=>{ const p=pts[a], q=pts[b]; const dx=q.x-p.x, dy=q.y-p.y; const d=Math.hypot(dx,dy)||1e-3; const f=(d-.09)*.004; p.vx+=dx/d*f; p.vy+=dy/d*f; q.vx-=dx/d*f; q.vy-=dy/d*f; });
+      links.forEach(([a,b])=>{ const p=pts[a], q=pts[b]; const dx=q.x-p.x, dy=q.y-p.y; const d=Math.hypot(dx,dy)||1e-3; const f=(d-.13)*.01; p.vx+=dx/d*f; p.vy+=dy/d*f; q.vx-=dx/d*f; q.vy-=dy/d*f; });
       pts.forEach(p=>{ p.vx*=.86; p.vy*=.86; p.x+=p.vx; p.y+=p.vy; p.x=Math.min(.94,Math.max(.06,p.x)); p.y=Math.min(.9,Math.max(.06,p.y)); });
     }
     for(let i=0;i<220;i++) step();
